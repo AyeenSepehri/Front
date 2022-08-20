@@ -276,7 +276,7 @@
               <!-- Catagory Card -->
               <div class="col-3">
                 <div class="card catagory-card">
-                  <div class="card-body px-2"><a href="sub-catagory.html"><img src="img/core-img/woman-clothes.png" alt=""><span>مد زنان</span></a></div>
+                  <div class="card-body px-2"><a href="sub-catagory.html"><img id="imageCategory" src="img/core-img/woman-clothes.png" alt=""><span id="nameCategory">مد زنان</span></a></div>
                 </div>
               </div>
               <!-- Catagory Card -->
@@ -585,6 +585,52 @@
     <script src="js/no-internet.js"></script>
     <script src="js/active.js"></script>
     <script src="js/pwa.js"></script>
+    <script>
+      //apis of categories
+      fetch("http://127.0.0.1:8000/api/articles/categories/")
+      .then(
+        (response)=>{
+          if(response.ok){
+            return response.json()
+          }else{
+            throw new Error("respons is void")
+          }
+        }
+      ).then(
+        data => {
+          //elements of category
+          let imageCategory = document.getElementById("imageCategory")
+          let nameCategory = document.getElementById("nameCategory")
+          //take object of api
+          let result = data.results[0];
+          //take properties of object
+          let imageSrc = result.image;
+          let nameText = result.name;
+          //pass datas to elements
+          imageCategory.src = imageSrc;
+          nameCategory.innerHTML = nameText
+          console.log(result)
+        }
+      )
+      //apis of category-details
+      // const testFunction = async () => {
+      //   let respons = await fetch("http://127.0.0.1:8000/api/articles/category-detail/{id}/")
+      //   console.log(respons)
+      // }
+      // testFunction()
+      fetch("http://127.0.0.1:8000/api/articles/category-detail/6/")
+      .then(
+        (response) => {
+          if(response.ok){
+            return response.json()
+          }else{
+            throw new Error("response is void")
+          }
+        }
+      ).then(
+        data => console.log(data)
+      )
+    </script>
   </body>
 
 </html>

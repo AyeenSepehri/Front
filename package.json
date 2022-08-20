@@ -2,5 +2,25 @@
   "name": "suha-fa",
   "lockfileVersion": 2,
   "requires": true,
-  "packages": {}
+  "packages": {},
+  "version": "1.0.0",
+  "main": "service-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyeenSepehri/Front.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyeenSepehri/Front/issues"
+  },
+  "homepage": "https://github.com/AyeenSepehri/Front#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
